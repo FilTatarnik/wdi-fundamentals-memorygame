@@ -1,13 +1,7 @@
 var cards = ['queen', 'queen', 'king', 'king'];
 var cardsInPlay = [];
+var flipCard = function(cardId){
 
-
-
-
-var cardOne = [cards[0]];
-var cardTwo = [cards[2]];
-cardsInPlay.push('cardOne');
-cardsInPlay.push('cardTwo');
 
 if (cardsInPlay[0] === cardsInPlay[1]){
 
@@ -15,6 +9,14 @@ if (cardsInPlay[0] === cardsInPlay[1]){
 
    } else {
 	alert("Sorry, try again.");
+
+	
+	};
+	console.log("User flipped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]);
 };
-console.log('User flipped ' + cardOne);
-console.log('User flipped ' + cardTwo);
+
+flipCard(0);
+
+flipCard(2);
+
