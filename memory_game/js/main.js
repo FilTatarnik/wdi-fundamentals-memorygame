@@ -9,7 +9,7 @@ var cards = [
 		{
 		rank: "queen",
 		suit: "diamonds",
-		cardImage:"images/queen-of-diamonds"
+		cardImage:"images/queen-of-diamonds.png"
 	},
 		{
 		rank: "king",
@@ -27,42 +27,51 @@ var cards = [
 
 var cardsInPlay = [];
 var checkForMatch = function(){
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-		console.log("You found a match!");
-		} else {
-		console.log("Sorry, try again.");
-}
-};
-
-
-//flipcard function
-var flipCard = function(cardId){
-
-
-if (cardsInPlay[0] === cardsInPlay[2]){
-
-	alert("You've found a match!");
-
-   } else {
-	alert("Sorry, try again.");
-
-	
+		if (cardsInPlay.length === 2) {
+			if(cardsInPlay[0] === cardsInPlay[1]) {
+				alert("You found a match!");
+			} else { alert("Sorry, try again.");
+		}
 	}
+}	
+
+//flipcard function first try
+// var flipCard = function(){
+// 	var cardId = this.getAttribute('data-id');
+// 		console.log('User flipped ' + cards[cardId].rank);
+// 		cardsInPlay.push(cards[cardId].rank);
+// 		console.log(cards[cardId].suit);
+// 		console.log(cards[cardId]cardImage);
+// 			this.setAttribute('src', cards[cardId].cardImage);
+				
+// 	checkForMatch()
+// }
+
+var flipCard = function() {
+	var cardId = this.getAttribute('data-id');
 	console.log("User flipped " + cards[cardId].rank);
-	cardsInPlay.push(cards[cardId]);
+	 cardsInPlay.push(cards[cardId].rank);
+	console.log(cards[cardId].suit);
+	console.log(cards[cardId].cardImage);
+	 this.setAttribute('src', cards[cardId].cardImage);
+	checkForMatch();
+}
+
+
+//function that creates a new game board
+var createBoard = function(){
+	for (var i = 0;i < cards.length;i++){
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		document.getElementById('game-board').appendChild(cardElement);
+		cardElement.addEventListener('click', flipCard);
+		
+	}
+}
 
 
 
-	console.log([cards[cardId].cardImage]);
-	console.log([cards[cardId].suit]);
 
-
-
-	// checkForMatch();
-};
-
-//calling the flipCard function
-flipCard(0);
-
-flipCard(2);
-
+//calling createBoard function
+createBoard();

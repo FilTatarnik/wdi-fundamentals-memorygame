@@ -17,12 +17,21 @@ p {
 a {
 	margin: 0 20px 0 20px;
 	border-bottom: 2px solid transparent;
+	text-decoration: none;
 	color:white;
+	padding-top: 30px;
 }
 
 a:hover {
 	border-color:white;
 }
+
+
+    
+    .fa:hover {
+    opacity: 0.3;
+    }
+
 
 .allcaps {
 
@@ -84,7 +93,7 @@ footer {
 	padding:0 20px 0 20px;
 	background-color: #0D2C40;
 	color: white;
-	font-size: 14px;
+	font-size: 30px;
 	letter-spacing: .08em;
 	font-weight: 500;
 }
